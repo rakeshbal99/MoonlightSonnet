@@ -13,6 +13,10 @@ A calm, local-first web app built for consistent **15–20 minute daily vocal pr
 - **Custom Keyboard Practice Companion:** Log your own finger exercises and break songs/tunes into sections with current vs. target BPM tracking and an **Auto-BPM Ramp Metronome** (+BPM every N bars).
 - **Local-First Accountability Engine:** Daily vocal streak, 12-week practice heatmap, post-session reflection & next-day notes, 20-second **Weekly Voice Checkpoint** recorder, recurring **macOS Calendar (`.ics`)** reminder export, and **1-click JSON backup/restore** (IndexedDB via Dexie.js).
 
+## Live App (GitHub Pages)
+
+Hosted statically at **https://rakeshbal99.github.io/MoonlightSonnet/** — 100% client-side, zero cloud servers, and microphone audio stays strictly in your browser.
+
 ## Getting Started
 
 ```bash

@@ -387,6 +387,10 @@ export function generateDailyReminderIcs(reminderTime: string, dailyGoalMins: nu
   const dtEnd = `${y}${mo}${da}T${eh}${em}00`;
 
   const uid = `moonlightsonnet-daily-${Date.now()}@local`;
+  const appUrl =
+    typeof window !== 'undefined' && window.location.href
+      ? window.location.origin + window.location.pathname
+      : 'https://rakeshbal99.github.io/MoonlightSonnet/';
 
   return [
     'BEGIN:VCALENDAR',
@@ -398,7 +402,7 @@ export function generateDailyReminderIcs(reminderTime: string, dailyGoalMins: nu
     `DTEND:${dtEnd}`,
     'RRULE:FREQ=DAILY',
     'SUMMARY:MoonlightSonnet: Daily Vocal & Ear Practice (15-20m)',
-    'DESCRIPTION:Open MoonlightSonnet (http://localhost:5173) for your daily Hindustani/Western vocal practice & ear sprint. Even 5-Min Streak Saver counts!',
+    `DESCRIPTION:Open MoonlightSonnet (${appUrl}) for your daily Hindustani/Western vocal practice & ear sprint. Even 5-Min Streak Saver counts!`,
     'BEGIN:VALARM',
     'TRIGGER:-PT5M',
     'ACTION:DISPLAY',

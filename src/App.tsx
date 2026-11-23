@@ -82,7 +82,7 @@ export function App() {
   if (!ready || !settings) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#0f0e0d] text-stone-400 text-sm">
-        Warming up SwaraKeys Studio…
+        Warming up MoonlightSonnet Studio…
       </div>
     );
   }
@@ -116,7 +116,7 @@ export function App() {
             </div>
             <div className="text-left">
               <div className="text-sm font-bold tracking-tight text-stone-100 leading-none">
-                SwaraKeys
+                MoonlightSonnet
               </div>
               <div className="text-[10px] text-stone-500 mt-0.5">Vocal · Ear · Keyboard</div>
             </div>

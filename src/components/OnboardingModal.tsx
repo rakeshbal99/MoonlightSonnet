@@ -27,7 +27,7 @@ export function OnboardingModal({ initialSettings, onComplete }: OnboardingModal
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'swarakeys-daily-practice.ics';
+    a.download = 'moonlightsonnet-daily-practice.ics';
     a.click();
     URL.revokeObjectURL(url);
     setDownloadedIcs(true);
@@ -54,7 +54,7 @@ export function OnboardingModal({ initialSettings, onComplete }: OnboardingModal
               <Music2 className="h-5 w-5" />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-stone-100">Welcome to SwaraKeys</h2>
+              <h2 className="text-lg font-bold text-stone-100">Welcome to MoonlightSonnet</h2>
               <p className="text-xs text-stone-400">Step {step} of 3 · 1-minute studio calibration</p>
             </div>
           </div>

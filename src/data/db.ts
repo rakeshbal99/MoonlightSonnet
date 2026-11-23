@@ -85,7 +85,7 @@ export interface VoiceCheckpoint {
   audioDataUrl: string;
 }
 
-export class SwaraKeysDB extends Dexie {
+export class MoonlightSonnetDB extends Dexie {
   settings!: Table<UserSettings, string>;
   sessions!: Table<PracticeSession, number>;
   missedDays!: Table<MissedDayLog, string>;
@@ -95,7 +95,7 @@ export class SwaraKeysDB extends Dexie {
   voiceCheckpoints!: Table<VoiceCheckpoint, number>;
 
   constructor() {
-    super('SwaraKeysDB');
+    super('MoonlightSonnetDB');
     this.version(1).stores({
       settings: 'id',
       sessions: '++id, date, type, completedAt',
@@ -108,7 +108,7 @@ export class SwaraKeysDB extends Dexie {
   }
 }
 
-export const db = new SwaraKeysDB();
+export const db = new MoonlightSonnetDB();
 
 export const DEFAULT_SETTINGS: UserSettings = {
   id: 'default',
@@ -313,7 +313,7 @@ export async function exportAllDataJson(): Promise<string> {
 
   return JSON.stringify(
     {
-      app: 'SwaraKeys',
+      app: 'MoonlightSonnet',
       version: 1,
       exportedAt: new Date().toISOString(),
       data: {
@@ -335,7 +335,7 @@ export async function importAllDataJson(rawJson: string): Promise<void> {
   const parsed = JSON.parse(rawJson);
   const data = parsed?.data;
   if (!data || !Array.isArray(data.sessions)) {
-    throw new Error('Invalid SwaraKeys backup file.');
+    throw new Error('Invalid MoonlightSonnet backup file.');
   }
 
   await db.transaction(
@@ -386,23 +386,23 @@ export function generateDailyReminderIcs(reminderTime: string, dailyGoalMins: nu
   const em = String(endDate.getMinutes()).padStart(2, '0');
   const dtEnd = `${y}${mo}${da}T${eh}${em}00`;
 
-  const uid = `swarakeys-daily-${Date.now()}@local`;
+  const uid = `moonlightsonnet-daily-${Date.now()}@local`;
 
   return [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//SwaraKeys//Daily Music Practice//EN',
+    'PRODID:-//MoonlightSonnet//Daily Music Practice//EN',
     'BEGIN:VEVENT',
     `UID:${uid}`,
     `DTSTART:${dtStart}`,
     `DTEND:${dtEnd}`,
     'RRULE:FREQ=DAILY',
-    'SUMMARY:SwaraKeys: Daily Vocal & Ear Practice (15-20m)',
-    'DESCRIPTION:Open SwaraKeys (http://localhost:5173) for your daily Hindustani/Western vocal practice & ear sprint. Even 5-Min Streak Saver counts!',
+    'SUMMARY:MoonlightSonnet: Daily Vocal & Ear Practice (15-20m)',
+    'DESCRIPTION:Open MoonlightSonnet (http://localhost:5173) for your daily Hindustani/Western vocal practice & ear sprint. Even 5-Min Streak Saver counts!',
     'BEGIN:VALARM',
     'TRIGGER:-PT5M',
     'ACTION:DISPLAY',
-    'DESCRIPTION:Time for your daily SwaraKeys vocal practice!',
+    'DESCRIPTION:Time for your daily MoonlightSonnet vocal practice!',
     'END:VALARM',
     'END:VEVENT',
     'END:VCALENDAR',

@@ -102,7 +102,7 @@ export function ProgressVault({
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `swarakeys-backup-${getTodayDateStr()}.json`;
+    a.download = `moonlightsonnet-backup-${getTodayDateStr()}.json`;
     a.click();
     URL.revokeObjectURL(url);
     setStatusMsg('Backup JSON downloaded.');
@@ -125,7 +125,7 @@ export function ProgressVault({
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'swarakeys-daily-practice.ics';
+    a.download = 'moonlightsonnet-daily-practice.ics';
     a.click();
     URL.revokeObjectURL(url);
     setStatusMsg('Downloaded macOS Calendar (.ics) recurring reminder.');
@@ -138,7 +138,7 @@ export function ProgressVault({
     }
     const perm = await Notification.requestPermission();
     if (perm === 'granted') {
-      new Notification('SwaraKeys Reminder', {
+      new Notification('MoonlightSonnet Reminder', {
         body: 'Time for your 15–20 min vocal & ear practice! Even 5-Min Streak Saver counts.',
       });
       setStatusMsg('Browser notification permission granted.');

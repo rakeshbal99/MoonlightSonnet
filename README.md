@@ -1,4 +1,4 @@
-# SwaraKeys — Daily Vocal, Ear & Keyboard Practice Studio
+# MoonlightSonnet — Daily Vocal, Ear & Keyboard Practice Studio
 
 A calm, local-first web app built for consistent **15–20 minute daily vocal practice** (bridging **Hindustani Classical** and **Western vocals**), **dual-system ear training**, and a **standalone keyboard practice companion** with accountability tracking.
 
